@@ -25,7 +25,7 @@ SECRET_KEY = '$lnt=4i^p-153$h%rg=8b^=!zhb!&2+00u*58cr3z)auy+ay6_'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['django-tutorial-rtorres90.c9users.io']
 
 
 # Application definition
