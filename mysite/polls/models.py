@@ -1,4 +1,5 @@
 from __future__ import unicode_literals
+import datetime
 
 from django.db import models
 from django.utils import timezone
@@ -9,10 +10,12 @@ class Question(models.Model):
     pub_date = models.DateTimeField('date published')
     
     def was_published_recently(self):
-        return self.pub_date >= timezone.now() - datetime.timedelta(days=1)
+        now = timezone.now()
+        return now - datetime.timedelta(days=1) <= self.pub_date <= now
     
     def __str__(self):
-        return "<Question[id=%s, question_text=%s]>" % (self.id, self.question_text)
+        #return "<Question[id=%s, question_text=%s]>" % (self.id, self.question_text)
+        return self.question_text
         
 class Choice(models.Model):
     question = models.ForeignKey(Question, on_delete=models.CASCADE)
